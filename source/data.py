@@ -13,7 +13,10 @@ with (open('configuration.txt', "r") as file):
             else:
                 config[key] = float('inf')
 
-print(config)
+def configuration():
+    if not config.get("token"):
+        print("Invalid token")
+        quit()
 
 headers = {
     'Accept': '*    /*',
@@ -36,6 +39,3 @@ def sync():
     except Exception as ex:
         print(sync.__name__, ex)
         print("Sync failed")
-        if not config.get("token"):
-            return ValueError("No token provided")
-        return {}

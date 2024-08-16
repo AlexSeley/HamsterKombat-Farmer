@@ -4,7 +4,7 @@ from source.functions import buy_upgrade, upgrades, _syncUpgrade
 async def best_upgrade():
     dic = upgrades()
 
-    upgradeIds = [item.get("id") for item in dic]
+    upgradeIds = [item["id"] for item in dic]
     elements = ["price", "profitPerHourDelta", "isAvailable", "isExpired"]
     syncedUpgrades = _syncUpgrade(upgradeIds, elements)
 

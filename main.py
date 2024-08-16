@@ -1,6 +1,7 @@
 import asyncio
 from source.clicker import availableTaps, maxTaps, tapper, boost
 from source.upgrade import best_upgrade
+from source.data import configuration
 
 
 async def clicker():
@@ -21,9 +22,11 @@ async def upgrades():
 
 
 async def main():
+    print("App started")
     async with asyncio.TaskGroup() as tg:
         tg.create_task(upgrades())
         tg.create_task(clicker())
 
 if __name__ == "__main__":
+    configuration()
     asyncio.run(main())

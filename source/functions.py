@@ -47,7 +47,6 @@ def upgrades():    # Get information about all upgrades of the user
         dic = [ele for ele in upgradesForBuy if isinstance(ele, dict)]
 
         return dic
-
     except Exception as ex:
         print(upgrades.__name__, ex)
         return {}
