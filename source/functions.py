@@ -42,15 +42,15 @@ def upgrades():    # Get information about all upgrades of the user
     link = "https://api.hamsterkombatgame.io/clicker/upgrades-for-buy"
     try:
         res = requests.post(link, headers=headers)
+        upgradesForBuy = res.json()
+        upgradesForBuy = upgradesForBuy.get("upgradesForBuy")
+        dic = [ele for ele in upgradesForBuy if isinstance(ele, dict)]
+
+        return dic
+
     except Exception as ex:
         print(upgrades.__name__, ex)
         return {}
-
-    upgradesForBuy = res.json()
-    upgradesForBuy = upgradesForBuy.get("upgradesForBuy")
-    dic = [ele for ele in upgradesForBuy if isinstance(ele, dict)]
-
-    return dic
 
 
 def _syncUpgrade(upgradeId: list, elements: list):    # Get information about specific upgrades of the user and elements

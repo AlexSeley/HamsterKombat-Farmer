@@ -2,13 +2,12 @@ import requests
 from source.data import headers, sync
 import time
 import json
-import re
-
 
 def syncTaps():
     try:
         return sync().get("clickerUser")
     except Exception as ex:
+        print("SyncTaps failed")
         print(syncTaps.__name__, ex)
         return {}
 
@@ -41,8 +40,10 @@ async def boost():
     data = json.dumps(data)
 
     try:
-        requests.post(link, headers=headers, data=data).json()
-
+        res = requests.post(link, headers=headers, data=data)
+        if res.status_code == 200:
+            print("Boost")
     except Exception as ex:
+        print("Boost", res.status_code)
         print(boost.__name__, ex)
         return {}

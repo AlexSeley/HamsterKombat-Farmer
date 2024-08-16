@@ -29,12 +29,13 @@ headers = {
     'Content-Type': 'application/json'
     }
 
-link = "https://api.hamsterkombatgame.io/clicker/sync"
-
 def sync():
+    link = "https://api.hamsterkombatgame.io/clicker/sync"
     try:
         return requests.post(link, headers=headers).json()
     except Exception as ex:
         print(sync.__name__, ex)
+        print("Sync failed")
         if not config.get("token"):
             return ValueError("No token provided")
+        return {}
