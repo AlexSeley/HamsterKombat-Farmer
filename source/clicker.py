@@ -44,6 +44,6 @@ async def boost():
         if res.status_code == 200:
             print("Boost")
     except Exception as ex:
-        print("Boost", res.status_code)
+        print("Boost failed")
         print(boost.__name__, ex)
         return {}

@@ -12,7 +12,7 @@ async def best_upgrade():
     for upgrade in syncedUpgrades:
         item = syncedUpgrades[upgrade]
         if item["isAvailable"] and not item["isExpired"] and item["price"]:
-            if (item["profitPerHourDelta"] / item["price"]) >= 0.0005:  # The higher, the more profit
+            if (item["profitPerHourDelta"] / item["price"]) >= 0.00045:  # The higher, the more profit 0.0005
                 profitItems.append(item["id"])
 
     _syn_cool = _syncUpgrade(profitItems, ["cooldownSeconds"])

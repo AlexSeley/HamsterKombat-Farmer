@@ -1,4 +1,5 @@
 import requests
+import time
 
 config = {}
 
@@ -35,7 +36,9 @@ headers = {
 def sync():
     link = "https://api.hamsterkombatgame.io/clicker/sync"
     try:
+        time.sleep(4)
         return requests.post(link, headers=headers).json()
     except Exception as ex:
         print(sync.__name__, ex)
         print("Sync failed")
+        return {}
