@@ -37,7 +37,7 @@ async def internet():
         except requests.ConnectionError:
             print("Not connected")
 
-            await asyncio.sleep(3600)
+        await asyncio.sleep(3600)
 
 async def main():
     print("App started")
